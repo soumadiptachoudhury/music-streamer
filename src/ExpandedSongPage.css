@@ -1,0 +1,195 @@
+.expanded-song-page{
+    background-color: var(--orange);
+    margin:0;
+    padding:0;
+    max-height: 740px;
+    padding: 10px;
+}
+
+.back-button{
+    color:var(--orange);
+    cursor:pointer;
+    background-color: white;
+    height:30px;
+    width: 70px;
+    border-radius: 20px;
+    padding-left: 15px;
+    padding-top: 3px;
+    margin-top: 5px;;
+
+}
+
+.expanded-song-page-main-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 30px);
+    padding-top: 25px;
+}
+
+ .expanded-info-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.expanded-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    margin-top: 20px;
+}
+
+.expanded-info-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+   
+    width: 230px; 
+    overflow: hidden;
+    position: relative;
+    
+   
+}
+.expanded-info-left-marquee-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+   
+    width: 230px; 
+    overflow: hidden;
+    position: relative;
+    
+   
+    -webkit-mask-image: linear-gradient(to right, 
+        rgba(0,0,0,0) 0px, 
+        rgba(0,0,0,1) 15px, 
+        rgba(0,0,0,1) 215px, 
+        rgba(0,0,0,0) 230px
+    );
+    mask-image: linear-gradient(to right, 
+        rgba(0,0,0,0) 0px, 
+        rgba(0,0,0,1) 15px, 
+        rgba(0,0,0,1) 215px, 
+        rgba(0,0,0,0) 230px
+    );
+}
+
+
+/* Add this to ensure the animated text doesn't wrap and can be measured */
+.expanded-info-left div {
+    white-space: nowrap;
+    display: inline-block; 
+}
+
+.time-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    color: white;
+    margin-top: 10px;
+    padding: 0 2px;
+}
+
+.expanded-page-audio-buttons{
+    display: flex;
+    align-items: center;
+    width: 270px;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+@keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+
+/* Segmented Control (Figma Style) */
+.repeat-selector {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 4px;
+    margin-top: 25px;
+    width: 250px;
+}
+
+.repeat-option {
+    flex: 1;
+    text-align: center;
+    color: white;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.repeat-option.active {
+    background: white;
+    color: var(--orange);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Control Row Icons */
+.control-icon {
+    width: 25px;
+    height: 25px;
+    opacity: 0.5;
+}
+.control-icon.active {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px white);
+}
+
+.queue-toggle {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Queue Overlay */
+.queue-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 20px;
+    z-index: 100;
+    animation: slideUp 0.3s ease-out;
+    color: black;
+    overflow-y: auto;
+}
+
+.queue-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.queue-item.playing {
+    background: #fff3e0;
+    color: var(--orange);
+    font-weight: bold;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+

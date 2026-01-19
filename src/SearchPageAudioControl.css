@@ -1,0 +1,38 @@
+.search-page-audio-control{
+    width: 360px;
+    height: 73px;
+    background-color: var(--orange);
+    border-radius: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 14px;
+    padding-right: 20px;
+    display: relative;
+}
+
+.search-page-audio-left{
+    display: flex;
+    align-items: center;
+    
+}
+
+.search-page-audio-clicker{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    z-index: 11;
+    background-color: transparent;
+}
+
+@keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}

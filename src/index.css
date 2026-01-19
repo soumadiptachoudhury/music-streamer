@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  background-color: black;
+
+}
+:root{
+  --orange: #FF8400;
+  --grey: #6B6B6B
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
