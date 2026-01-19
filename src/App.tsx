@@ -1,9 +1,16 @@
+// @ts-ignore
 import { useState, useRef, createContext,useEffect} from "react";
 import './App.css';
 import SearchPage from "./SearchPage";
-import ExpandedSongPage from "./ExpandedSongPage";
+import ExpandedSongPage from "./ExpandedSongPage.tsx";
 export const currentSongContext = createContext({} as any);
-
+interface Song {
+  song_id: number;
+  title: string;
+  artist: string;
+  album_id?: string;
+  artist_id?: string;
+}
 export default function App() {
     const [currentSongUrl, setCurrentSongUrl] = useState('S2');
     const songRef = useRef<HTMLAudioElement>(null);
@@ -14,7 +21,7 @@ export default function App() {
     const [currentAlbumId, setCurrentAlbumId] = useState(2);
     const [currentTitle, setCurrentTitle] = useState("2002");
     const [currentArtist, setCurrentArtist] = useState("Anne Marie");
-    const [infiniteMode, setInfiniteMode] = useState(false);
+
 
     const [repeatMode, setRepeatMode] = useState<'none' | 'all' | 'one'>('all');
 
@@ -41,7 +48,7 @@ export default function App() {
         
         // Crucial: Move the currently playing song to the top of the shuffled list
         // so the music doesn't jump to a different track immediately
-        const filtered = shuffled.filter(s => s.id !== currentSong.id);
+        const filtered = shuffled.filter(s => s.id !== currentSong.song_id);
         const finalQueue = [currentSong, ...filtered];
         
         setDisplayQueue(finalQueue);
@@ -50,7 +57,7 @@ export default function App() {
     } else {
         // Turning Shuffle OFF
         const currentSong = displayQueue[currentIndex];
-        const originalIdx = originalQueue.findIndex(s => s.id === currentSong.id);
+        const originalIdx = originalQueue.findIndex(s => s.song_id === currentSong.song_id);
         
         setDisplayQueue(originalQueue);
         setCurrentIndex(originalIdx);
